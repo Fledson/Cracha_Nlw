@@ -93,3 +93,12 @@ ul li img:hover {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
+
+@media (max-width: 375px) {
+    html {
+        font-size: 100%;
+    }
+    main {
+        height: 100vh;
+    }
+}
