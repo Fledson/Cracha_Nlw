@@ -1,11 +1,11 @@
 # **Cracha_Nlw**
-##Um crachá virtual criado na Trilha Origin da NLW HEAT
+Um crachá virtual criado na Trilha Origin da NLW HEAT
 
 ## **Sobre :label:**
 O projeto consome a *API do GitHub* (se encontra no ```script.js```) para gerar um chachá com os alguns dados do github no chachá, como a foto, nome e descrição
 Tambem foi usado uma *API do google* para gerar um QRCode que aponta para o convite do evento Do While
 
-## **Como Baixar :arrow_down_small: **
+## Como Baixar :arrow_down_small:
  Para baixar o projeto pelo git você pode realizar diretamente o donwload do arquivo .ZIP pelo repositorio 
 
 ### Baixando o Arquivo :package:
