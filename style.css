@@ -1,15 +1,16 @@
 * {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 html,
 body {
     height: 100%;
-    font-family: 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased;
     /* CORES */
     --grey: hsla(240, 9%, 89%, 1);
     --black: hsla(240, 9%, 13%);
+    background: radial-gradient(#252525, #000000);
 }
 
 body {
@@ -17,23 +18,53 @@ body {
     place-items: center;
 }
 
+header {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    top: 0;
+}
+
+header .degrade1 {
+    position: fixed;
+    right: 0rem;
+}
+
+header .degrade2 {
+    position: fixed;
+    left: 0rem;
+}
+
+.detail {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    margin: auto;
+    position: absolute;
+    border: none;
+}
+
 main {
-    background: url(images/background.svg);
-    width: 375px;
-    height: 812px;
+    z-index: 1;
+    background: url("./images/background-Desktop.svg") no-repeat center;
+    background-size: cover;
+    width: 22.37rem;
+    min-height: 34.22rem;
+    degrade1-shadow: 0 0 .75rem .35rem rgba(136, 135, 135, 0.226);
+    border-radius: .5rem;
 }
 
 .container {
-    max-width: 250px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
+    margin: auto;
+    max-width: 250px;
     color: var(--grey);
 }
 
 .avatar {
     width: 10rem;
-    margin: 11.5rem auto 0;
+    margin: 3.5rem auto 0;
     position: relative;
 }
 
@@ -48,6 +79,11 @@ main {
     height: 11.5rem;
     object-fit: cover;
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.avatar>img:hover {
+    cursor: pointer;
+    background-color: red;
 }
 
 h1 {
@@ -84,6 +120,7 @@ ul {
 }
 
 ul li img {
+    border-radius: 1rem;
     box-shadow: 0 0.5rem 0.7rem 0rem rgba(0, 0, 0, 0.7);
     -webkit-transition: -webkit-transform .3s ease;
     transition: transform .3s ease;
@@ -94,11 +131,90 @@ ul li img:hover {
     transform: scale(1.1);
 }
 
-@media (max-width: 375px) {
+
+/* DEFININDO CONFIGURAÇÕES DA ANIMAÇÃO DO DEGRADE1 */
+
+.degrade1 {
+    -webkit-animation-name: movedegrade1;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+}
+
+
+/* DEFININDO CONFIGURAÇÕES DA ANIMAÇÃO DO DEGRADE2 */
+
+.degrade2 {
+    -webkit-animation-name: movedegrade2;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: reverse;
+}
+
+
+/* DEFININDO MOVIMENTO DE ANIMAÇÃO DO DEGRADE1 */
+
+@-webkit-keyframes movedegrade1 {
+    0% {
+        bottom: 0;
+        left: 0rem;
+    }
+    33% {
+        bottom: 2rem;
+        left: 30rem;
+    }
+    66% {
+        bottom: 14rem;
+        left: 60rem;
+    }
+    100% {
+        bottom: 0;
+        left: 0rem;
+    }
+}
+
+
+/* DEFININDO MOVIMENTO DE ANIMAÇÃO DO DEGRADE2 */
+
+@-webkit-keyframes movedegrade2 {
+    0% {
+        bottom: 10rem;
+        right: 5rem;
+    }
+    25% {
+        bottom: 0rem;
+        left: 40rem;
+    }
+    50% {
+        bottom: 16rem;
+        left: 16rem;
+    }
+    75% {
+        bottom: 20rem;
+        left: 5rem;
+    }
+    100% {
+        bottom: 10rem;
+        right: 5rem;
+    }
+}
+
+@media (max-width: 325px) {
     html {
-        font-size: 100%;
+        font-size: 90%;
+    }
+    header,
+    main .detail {
+        display: none;
     }
     main {
+        background: url("./images/background.svg") no-repeat center 0rem;
         height: 100vh;
+        border-radius: 0;
+    }
+    .avatar {
+        margin: 13.5rem auto 0;
     }
 }
